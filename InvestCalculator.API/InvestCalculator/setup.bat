@@ -2,6 +2,8 @@
 
 :: Navegar para o diretório do projeto e iniciar o servidor
 
+cd InvestCalculator.API\InvestCalculator\
+
 dotnet restore	
 
 timeout /t 5 /nobreak > null
