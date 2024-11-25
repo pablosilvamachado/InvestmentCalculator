@@ -15,22 +15,22 @@ Este projeto é uma aplicação completa que calcula o Valor Bruto e o Valor Lí
 
 Interface de usuário:
 
-- Entrada de dados: Valor Inicial e Período (em meses).
-- Exibição do resultado com:
-- Valor Bruto.
-- Valor Líquido (após impostos).
-- Cálculo backend:
-- Fórmula aplicada mês a mês para calcular o valor final.
+1.  Entrada de dados: Valor Inicial e Período (em meses).
+2.  Exibição do resultado com:
+3.  Valor Bruto.
+4.  Valor Líquido (após impostos).
+5.  Cálculo backend:
+6.  Fórmula aplicada mês a mês para calcular o valor final.
 
 - Dedução de impostos de acordo com o prazo:
 
-Até 6 meses: 22.5%.
+- Até 6 meses: 22.5%.
 
-De 7 a 12 meses: 20.0%.
+- De 7 a 12 meses: 20.0%.
 
-De 13 a 24 meses: 17.5%.
+- De 13 a 24 meses: 17.5%.
 
-Acima de 24 meses: 15.0%.
+- Acima de 24 meses: 15.0%.
 
 
 ##  🛠️Tecnologias
@@ -47,13 +47,15 @@ Acima de 24 meses: 15.0%.
 
 Certifique-se de ter os seguintes softwares instalados:
 
-1 .NET 8.0 SDK
+1. NET 8.0 SDK
 
 2. Node.js e npm
    
 3. Git
+   
 
-- Como baixar o projeto
+# Como baixar o projeto
+  
 
 Clone o repositório do GitHub:
 
@@ -95,9 +97,7 @@ setup.bat
 
 !. No navegador, acesse o endereço exibido no terminal (geralmente http://localhost:4200).
 
-
-2. Informe o Valor Inicial e o Período (em meses) na interface.
-  
+2. Informe o Valor Inicial e o Período (em meses) na interface.  
 
 3. Clique no botão para calcular e visualize os resultados.
 
