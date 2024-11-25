@@ -1,0 +1,41 @@
+<form [formGroup]="cdbForm" (ngSubmit)="onSubmit()" class="form-container">
+  <div>
+    <h1>Cálculo de CDB</h1>
+    <label for="valorInicial">Valor Inicial</label>
+    <input type="text"
+           id="valorInicial"
+           formControlName="valorInicial"
+           currencyMask
+           placeholder="R$ 0,00" />
+    <div *ngIf="cdbForm.get('valorInicial')?.touched && cdbForm.get('valorInicial')?.invalid">
+      <small *ngIf="hasError('valorInicial', 'required')">Valor inicial é obrigatório.</small>
+      <small *ngIf="hasError('valorInicial', 'min')">O valor deve ser maior que R$ 0,00.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="prazo">Prazo (Meses)</label>
+    <input type="number"
+           id="prazo"
+           formControlName="prazo"
+           min="1" />
+    <div *ngIf="cdbForm.get('prazo')?.touched && cdbForm.get('prazo')?.invalid">
+      <small *ngIf="hasError('prazo', 'required')">Prazo é obrigatório.</small>
+      <small *ngIf="hasError('prazo', 'min')">O prazo deve ser no mínimo 2 meses.</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="cdbForm.invalid">Calcular</button>
+</form>
+
+<hr class="separator" *ngIf="resultados" />
+
+<div *ngIf="resultados">
+  <h2>Totais</h2>
+  <div>
+    <p><strong>Total Bruto:</strong> {{ resultados.valorFinalBruto | currency:'BRL':'symbol':'1.2-2' }}</p>
+    <p><strong>Total Líquido:</strong> {{ resultados.valorFinalLiquido | currency:'BRL':'symbol':'1.2-2' }}</p>  
+  </div>
+</div>
+
+<hr class="separator" *ngIf="resultados" />

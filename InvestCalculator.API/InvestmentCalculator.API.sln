@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentCalculator.API", "InvestCalculator\InvestmentCalculator.API.csproj", "{5CD63A6A-AD1D-4A41-801A-E0E336E6F528}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentCalculator.Application", "InvestCalculator.Application\InvestmentCalculator.Application.csproj", "{7A17FC5D-1B5B-4BAB-9853-5D7AAFB38456}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentCalculator.Domain", "InvestCalculator.Domain\InvestmentCalculator.Domain.csproj", "{C68FCFE5-3EFC-4BAD-923A-1FEAF90E32F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentCalculator.Infrastructure", "InvestCalculator.Infrastructure\InvestmentCalculator.Infrastructure.csproj", "{583ECF69-2D23-450D-8B68-A38404EC2AAA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentCalculator.Tests", "InvestCalculator.Tests\InvestmentCalculator.Tests.csproj", "{B653F46F-77F4-4EAD-8FCF-9FFC2DAF2E23}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FrontEnd", "..\FrontEnd\", "{957460C3-70D1-4826-9840-D14466075A0A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_60233"
+		Debug.AspNetCompiler.PhysicalPath = "..\FrontEnd\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60233\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_60233"
+		Release.AspNetCompiler.PhysicalPath = "..\FrontEnd\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60233\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "60233"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CD63A6A-AD1D-4A41-801A-E0E336E6F528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD63A6A-AD1D-4A41-801A-E0E336E6F528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD63A6A-AD1D-4A41-801A-E0E336E6F528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD63A6A-AD1D-4A41-801A-E0E336E6F528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A17FC5D-1B5B-4BAB-9853-5D7AAFB38456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A17FC5D-1B5B-4BAB-9853-5D7AAFB38456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A17FC5D-1B5B-4BAB-9853-5D7AAFB38456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A17FC5D-1B5B-4BAB-9853-5D7AAFB38456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C68FCFE5-3EFC-4BAD-923A-1FEAF90E32F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C68FCFE5-3EFC-4BAD-923A-1FEAF90E32F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C68FCFE5-3EFC-4BAD-923A-1FEAF90E32F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C68FCFE5-3EFC-4BAD-923A-1FEAF90E32F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583ECF69-2D23-450D-8B68-A38404EC2AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583ECF69-2D23-450D-8B68-A38404EC2AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583ECF69-2D23-450D-8B68-A38404EC2AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583ECF69-2D23-450D-8B68-A38404EC2AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B653F46F-77F4-4EAD-8FCF-9FFC2DAF2E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B653F46F-77F4-4EAD-8FCF-9FFC2DAF2E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B653F46F-77F4-4EAD-8FCF-9FFC2DAF2E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B653F46F-77F4-4EAD-8FCF-9FFC2DAF2E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{957460C3-70D1-4826-9840-D14466075A0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{957460C3-70D1-4826-9840-D14466075A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{957460C3-70D1-4826-9840-D14466075A0A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{957460C3-70D1-4826-9840-D14466075A0A}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {494EAA32-2439-49D2-9131-53D818031668}
+	EndGlobalSection
+EndGlobal
