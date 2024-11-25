@@ -1,16 +1,16 @@
 # InvestmentCalculator
 
-##Projeto para Cálculo de investimento em CDB
+Projeto para Cálculo de investimento em CDB
 Este projeto é uma aplicação completa que calcula o Valor Bruto e o Valor Líquido de um investimento em CDB, com base no valor inicial e no período (em meses) informado pelo usuário.
 
-##Frontend: Interface de usuário para entrada de dados e exibição dos resultados.
+Frontend: Interface de usuário para entrada de dados e exibição dos resultados.
 
-##Backend: API em .NET para realizar os cálculos de rendimento e impostos.
+Backend: API em .NET para realizar os cálculos de rendimento e impostos.
 
-##Automação: Script setup.bat para simplificar o build e a execução do projeto.
+Automação: Script setup.bat para simplificar o build e a execução do projeto.
 
 
-##📋 Funcionalidades
+📋Funcionalidades
 
 Interface de usuário:
 Entrada de dados: Valor Inicial e Período (em meses).
@@ -25,15 +25,15 @@ De 7 a 12 meses: 20.0%.
 De 13 a 24 meses: 17.5%.
 Acima de 24 meses: 15.0%.
 
-##🛠️ Tecnologias
+🛠️ Tecnologias
 
 Backend: .NET (ASP.NET Core)
 Frontend: Angular
 Automação: Script Batch para build e execução
 
-##🚀 Configuração do Projeto
+🚀 Configuração do Projeto
 
-##Pré-requisitos
+Pré-requisitos
 
 Certifique-se de ter os seguintes softwares instalados:
 
@@ -76,7 +76,6 @@ cdb-calculator/
 ├── frontend/      # Interface Angular
 ├── setup.bat      # Script de automação para setup do projeto
 └── README.md      # Documentação do projeto
-
 
 📄 Licença
 Este projeto é licenciado sob a MIT License.
