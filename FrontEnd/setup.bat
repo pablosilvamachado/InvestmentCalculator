@@ -1,14 +1,16 @@
 @echo off
 
+cd FrontEnd\
+
 set "pasta=node_modules\"
 
 if not exist "%pasta%" (
     echo Instalando as dependências.
-	npm install  
-) else (
-    echo dependencias já instaladas.
-)
+	npm install
+	timeout /t 10 /nobreak > null
+    ng serve
+) 
 
-timeout /t 15 /nobreak > null 
+timeout /t 10 /nobreak > null 
 
 ng serve

@@ -1,6 +1,6 @@
 @echo off
 
-@echo "---------------------Projeto CDBInvest-------------------------"
+@echo "---------------------Projeto InvestCalculator-------------------------"
 
 @echo "---------------------Compilando e executando Front End-------------------------"
 
@@ -10,11 +10,11 @@ start FrontEnd\setup.bat
 start InvestCalculator.API\InvestCalculator\setup.bat
 
 @echo "---------------------Esperando Finalização do Poocesso-------------------------"
-timeout /t 20 /nobreak > null
+timeout /t 30 /nobreak > null
 
 @echo "---------------------Chamando Browse com Aplicação-------------------------"
 start chrome "http://localhost:4200/"
 
 
-@echo "Projeto CDBInvest Compilado"
+@echo "Projeto InvestCalculator Compilado"
 
