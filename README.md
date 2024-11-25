@@ -95,7 +95,7 @@ setup.bat
 
 ## 🖥️Uso
 
-!. No navegador, acesse o endereço exibido no terminal (geralmente http://localhost:4200).
+1. No navegador, acesse o endereço exibido no terminal (geralmente http://localhost:4200).
 
 2. Informe o Valor Inicial e o Período (em meses) na interface.  
 
@@ -114,11 +114,9 @@ cdb-calculator/
 
  └── README.md      # Documentação do projeto
  
-
 ##  📄Licença
 
 Este projeto é licenciado sob a MIT License.
-
 
 ##  🙌Contribuição
 
