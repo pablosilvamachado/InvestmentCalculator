@@ -1,6 +1,6 @@
 # InvestmentCalculator
 
-# Projeto para Cálculo do retorno de investimento em CDB por período.
+# Projeto para cálculo do retorno de investimento em CDB por período.
 
 Este projeto é uma aplicação completa que calcula o Valor Bruto e o Valor Líquido de um investimento em CDB, com base no valor inicial e no período (em meses) informado pelo usuário.
 
