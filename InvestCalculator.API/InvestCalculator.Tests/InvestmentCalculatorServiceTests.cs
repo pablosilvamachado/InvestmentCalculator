@@ -150,7 +150,7 @@ namespace CdbCalculator.Tests
             var resultado = await _service.Calcular(valorInicial, meses);
 
             // Assert   101.95
-            Assert.Equal(101.95m, resultado.ValorFinalBruto, 2); // Valor esperado após 12 meses
+            Assert.Equal(101.95m, resultado.ValorFinalBruto, 2); // Valor esperado após 2 meses
         }
 
         [Fact]
@@ -165,7 +165,7 @@ namespace CdbCalculator.Tests
             var resultado = await _service.Calcular(valorInicial, meses);
 
             // Assert   101.51
-            Assert.Equal(101.51m, resultado.ValorFinalLiquido, 2); // Valor esperado após 12 meses
+            Assert.Equal(101.51m, resultado.ValorFinalLiquido, 2); // Valor esperado após 2 meses
         }
 
 
