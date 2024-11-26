@@ -29,8 +29,8 @@ namespace CdbCalculator.Tests
             var provider = service.BuildServiceProvider();
            
             _service = provider.GetService<IService?>();
-        }
-
+        } 
+        
         [Fact]
         public async Task  CalcularCdb_ValoresInicialInvalidos()
         {
@@ -77,7 +77,7 @@ namespace CdbCalculator.Tests
 
             // Assert
             Assert.True(resultado.ValorFinalBruto > valorInicial);          
-            Assert.Equal(Math.Round(resultado.ValorFinalBruto - resultado.ValorFinalLiquido, 1, MidpointRounding.ToEven), Math.Round(resultado.Imposto, 1, MidpointRounding.ToEven));
+            Assert.Equal(Math.Round(resultado.ValorFinalBruto - resultado.ValorFinalLiquido, 1, MidpointRounding.AwayFromZero), Math.Round(resultado.Imposto, 1, MidpointRounding.AwayFromZero));
            
         }
 
@@ -91,7 +91,7 @@ namespace CdbCalculator.Tests
 
             // Act
             var resultado = await _service.Calcular(valorInicial, meses);
-            Assert.Equal(22.5m, Math.Round(resultado.Imposto / (resultado.ValorFinalBruto - valorInicial) * 100, 1, MidpointRounding.ToEven));
+            Assert.Equal(22.5m, Math.Round(resultado.Imposto / (resultado.ValorFinalBruto - valorInicial) * 100, 1, MidpointRounding.AwayFromZero));
 
         }
 
@@ -105,7 +105,7 @@ namespace CdbCalculator.Tests
 
             // Act
             var resultado = await _service.Calcular(valorInicial, meses);
-            Assert.Equal(20.0m, Math.Round(resultado.Imposto / (resultado.ValorFinalBruto - valorInicial) * 100, 1, MidpointRounding.ToEven));
+            Assert.Equal(20.0m, Math.Round(resultado.Imposto / (resultado.ValorFinalBruto - valorInicial) * 100, 1, MidpointRounding.AwayFromZero));
 
 
         }
@@ -120,7 +120,7 @@ namespace CdbCalculator.Tests
 
             // Act
             var resultado = await _service.Calcular(valorInicial, meses);
-            Assert.Equal(17.5m, Math.Round(resultado.Imposto / (resultado.ValorFinalBruto - valorInicial) * 100, 1, MidpointRounding.ToEven));
+            Assert.Equal(17.5m, Math.Round(resultado.Imposto / (resultado.ValorFinalBruto - valorInicial) * 100, 1, MidpointRounding.AwayFromZero));
         }
 
         [Fact]
@@ -133,9 +133,77 @@ namespace CdbCalculator.Tests
 
             // Act
             var resultado = await _service.Calcular(valorInicial, meses);
-            Assert.Equal(15.0m, Math.Round(resultado.Imposto / (resultado.ValorFinalBruto - valorInicial) * 100, 1, MidpointRounding.ToEven));
+            Assert.Equal(15.0m, Math.Round(resultado.Imposto / (resultado.ValorFinalBruto - valorInicial) * 100, 1, MidpointRounding.AwayFromZero));
 
 
+        }
+
+        [Fact]
+        public async  void CalcularCdb_DeveVerificarSeOValorFinalEstaCAlculadoCorreto()
+        {
+            // Arrange
+            decimal valorInicial = 100m;
+            int meses = 2;
+            var cdi = 0.009m; // 0.9%
+            var tb = 1.08m;  // 108%
+
+            var resultado = await _service.Calcular(valorInicial, meses);
+
+            // Assert   101.95
+            Assert.Equal(101.95m, resultado.ValorFinalBruto, 2); // Valor esperado após 12 meses
+        }
+
+        [Fact]
+        public async void CalcularCdb_DeveVerificarSeOValorLiquidoEstaCAlculadoCorreto()
+        {
+            // Arrange
+            decimal valorInicial = 100m;
+            int meses = 2;
+            var cdi = 0.009m; // 0.9%
+            var tb = 1.08m;  // 108%
+
+            var resultado = await _service.Calcular(valorInicial, meses);
+
+            // Assert   101.51
+            Assert.Equal(101.51m, resultado.ValorFinalLiquido, 2); // Valor esperado após 12 meses
+        }
+
+
+        [Theory]
+        [InlineData(6, 22.5)]
+        [InlineData(12, 20.0)]
+        [InlineData(24, 17.5)]
+        [InlineData(36, 15.0)]
+        public void CalcularCdb_DeveVerificarSeOImpostoEstaPeloPeriodocerto(int months, decimal expectedTaxRate)
+        {
+            // Arrange
+            var taxCalculator = new TaxCalculator();
+
+            // Act
+            var actualTaxRate = taxCalculator.GetTaxRate(months);
+
+            // Assert
+            Assert.Equal(expectedTaxRate, actualTaxRate);
+        }
+    }
+
+    internal class TaxCalculator
+    {
+      
+        public decimal GetTaxRate(int months)
+        {
+            decimal _taxaImposto = 0m;
+
+            if (months <= 6)
+                _taxaImposto = 22.5m;
+            else if (months <= 12)
+                _taxaImposto = 20.0m;
+            else if (months <= 24)
+                _taxaImposto = 17.5m;
+            else
+                _taxaImposto = 15.0m;
+
+            return _taxaImposto;
         }
     }
 }
