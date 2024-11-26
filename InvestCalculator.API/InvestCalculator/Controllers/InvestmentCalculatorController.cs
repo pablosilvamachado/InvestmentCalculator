@@ -1,4 +1,5 @@
 ﻿
+using InvestmentCalculator.API.Controllers;
 using InvestmentCalculator.Domain.Interfaces;
 using InvestmentCalculator.Domain.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +8,7 @@ namespace InvestCalculator.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InvestmentCalculatorController : ControllerBase
+    public class InvestmentCalculatorController : AplicationController
     {
         private readonly IService _Service;
 
@@ -31,6 +32,9 @@ namespace InvestCalculator.API.Controllers
 
                 var resultado = await _Service.Calcular(valores.valorInicial, valores.meses);
 
+                if (resultado.Status == 1)
+                    throw new ArgumentException(resultado.Error);
+
                 return Ok(resultado);
 
             }
@@ -45,7 +49,7 @@ namespace InvestCalculator.API.Controllers
                     Error = ex.Message
                 };
 
-                return  Ok(result);
+                return Error(result);
             }
         }
     }
