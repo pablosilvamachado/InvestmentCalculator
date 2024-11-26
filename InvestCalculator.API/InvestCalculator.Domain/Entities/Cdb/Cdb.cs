@@ -2,14 +2,12 @@
 
 namespace InvestmentCalculator.Domain.Entities.Cdb
 {
-    public class Cdb : Investimento
+    public class Cdb : Investimento, IInvestimento
     {
         private const decimal Cdi = 0.009m;
         private const decimal Tb = 1.08m;
 
         public const bool CalculaImposto = true;
-
-
         private decimal _valorFinalBruto { get; set; } = 0;
         private decimal _imposto { get; set; } = 0;
 
