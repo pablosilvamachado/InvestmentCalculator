@@ -8,7 +8,7 @@ namespace InvestmentCalculator.Domain.Entities.Cdb
         private const decimal Cdi = 0.009m;
         private const decimal Tb = 1.08m;
         private const bool imposto = true;
-        private decimal _valorFinalBruto { get; set; } = 0;
+        private decimal _valorFinalBruto { get; set; } = 00m;
         private decimal _imposto { get; set; } = 0;
 
         private decimal _valorInicial { get; set; } = 0m;
@@ -25,7 +25,7 @@ namespace InvestmentCalculator.Domain.Entities.Cdb
 
             var @investiment = new Cdb()
             {
-                _valorInicial = Math.Round(valorInicial, 2, MidpointRounding.ToNegativeInfinity),
+                _valorInicial = Math.Round(valorInicial, 2, MidpointRounding.AwayFromZero),
                 _meses = meses,
             };
             
@@ -44,7 +44,7 @@ namespace InvestmentCalculator.Domain.Entities.Cdb
             }
             await Task.Delay(0);
 
-            _valorFinalBruto = Math.Round(_valorFinalBruto, 2, MidpointRounding.ToNegativeInfinity);
+            _valorFinalBruto = Math.Round(_valorFinalBruto, 2, MidpointRounding.AwayFromZero);
 
             return _valorFinalBruto;
         }
@@ -73,7 +73,7 @@ namespace InvestmentCalculator.Domain.Entities.Cdb
 
             decimal desconto = _taxaImposto / 100 * (_valorFinalBruto - _valorInicial);
 
-            _imposto = Math.Round(desconto, 2, MidpointRounding.ToNegativeInfinity);
+            _imposto = Math.Round(desconto, 2, MidpointRounding.AwayFromZero);
 
             return _imposto;
         }
