@@ -3,17 +3,17 @@ using InvestmentCalculator.Domain.Models;
 
 namespace InvestmentCalculator.Domain.Entities.Cdb
 {
-    public class Cdb : Investimento, IInvestimento
+    public class Cdb :  IInvestimento
     {
         private const decimal Cdi = 0.009m;
         private const decimal Tb = 1.08m;
-
         private const bool imposto = true;
         private decimal _valorFinalBruto { get; set; } = 0;
         private decimal _imposto { get; set; } = 0;
 
-        public bool CalculaImposto => imposto;
-
+        private decimal _valorInicial { get; set; } = 0m;
+        private int _meses { get; set; } = 0;
+       
         public IInvestimento Create(decimal valorInicial, int meses)
         {
             if (valorInicial <= 0)
@@ -22,14 +22,17 @@ namespace InvestmentCalculator.Domain.Entities.Cdb
             if (meses <= 1)
                 throw new ArgumentException("O período deve ser maior que 1.");
 
+
             var @investiment = new Cdb()
             {
                 _valorInicial = Math.Round(valorInicial, 2, MidpointRounding.ToNegativeInfinity),
                 _meses = meses,
             };
-
+            
             return @investiment;
         }
+
+        public bool CalculaImposto => imposto;
 
         public async Task<decimal> CalcularValorFinal()
         {
