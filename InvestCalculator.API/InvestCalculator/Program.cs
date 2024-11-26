@@ -15,9 +15,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddScoped<ICalculatorEngine, CdbCalculatorEngine>();
+builder.Services.AddScoped<ICalculatorEngine, CalculatorEngine>();
 builder.Services.AddScoped<IManager, CdbManager>();
 builder.Services.AddScoped<IService, InvestmentCalculatorService>();
+
+builder.Services.AddScoped<IInvestimento, Cdb>();
+
 
 string[] origens = ["http://localhost:4200", "https://localhost:4200", "http://localhost:8080", "http://localhost:8081", "http://localhost:3000"];
 

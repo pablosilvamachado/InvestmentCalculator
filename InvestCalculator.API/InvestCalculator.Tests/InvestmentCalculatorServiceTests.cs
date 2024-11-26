@@ -21,9 +21,10 @@ namespace CdbCalculator.Tests
         {
             var service = new ServiceCollection();
 
-            service.AddScoped<ICalculatorEngine, CdbCalculatorEngine>();
+            service.AddScoped<ICalculatorEngine, CalculatorEngine>();
             service.AddScoped<IManager, CdbManager>();
-            service.AddScoped<IService, InvestmentCalculatorService>();            
+            service.AddScoped<IService, InvestmentCalculatorService>();
+            service.AddScoped<IInvestimento, Cdb>();
 
             var provider = service.BuildServiceProvider();
            

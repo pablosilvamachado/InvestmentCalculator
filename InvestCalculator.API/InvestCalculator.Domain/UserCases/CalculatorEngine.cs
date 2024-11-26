@@ -5,19 +5,29 @@ using InvestmentCalculator.Domain.Models.DTO;
 
 namespace InvestmentCalculator.Domain.UserCases
 {
-    public class CdbCalculatorEngine : ICalculatorEngine
+    public class CalculatorEngine : ICalculatorEngine
     {
-        public CdbCalculatorEngine()
+        private readonly IInvestimento _Investimento;
+
+       
+        public CalculatorEngine(IInvestimento investimento)
         {
-            
+            _Investimento = investimento;
         }
 
         public async Task<ResultadoDto> Calcular(decimal valorInicial, int meses)
         {
-            var entity = Cdb.Create(valorInicial, meses);
+            decimal ValorImposto = 00m;
+
+            var entity = _Investimento.Create(valorInicial, meses);
 
             var ValorFinal = await entity.CalcularValorFinal();
-            var ValorImposto = await entity.CalcularImposto();
+
+            if (entity.CalculaImposto)
+            {
+                 ValorImposto = await entity.CalcularImposto();
+            }
+
             var liquido = await entity.CalcularLiquido();
 
             return new ResultadoDto

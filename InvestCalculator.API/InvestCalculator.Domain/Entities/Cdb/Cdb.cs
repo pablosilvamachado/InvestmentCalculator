@@ -1,17 +1,20 @@
-﻿using InvestmentCalculator.Domain.Models;
+﻿using InvestmentCalculator.Domain.Interfaces;
+using InvestmentCalculator.Domain.Models;
 
 namespace InvestmentCalculator.Domain.Entities.Cdb
 {
     public class Cdb : Investimento, IInvestimento
     {
-        private const decimal Cdi = 0.009m;
+        private const decimal Cdi = 0.09m;
         private const decimal Tb = 1.08m;
 
-        public const bool CalculaImposto = true;
+        private const bool imposto = true;
         private decimal _valorFinalBruto { get; set; } = 0;
         private decimal _imposto { get; set; } = 0;
 
-        public static Cdb Create(decimal valorInicial, int meses)
+        public bool CalculaImposto => imposto;
+
+        public IInvestimento Create(decimal valorInicial, int meses)
         {
             if (valorInicial <= 0)
                 throw new ArgumentException("O valor inicial deve ser maior que zero.");
@@ -45,7 +48,6 @@ namespace InvestmentCalculator.Domain.Entities.Cdb
 
         private async Task<decimal> TaxaImposto()
         {
-
             decimal _taxaImposto = 0m;
 
             if (_meses <= 6)
@@ -60,7 +62,6 @@ namespace InvestmentCalculator.Domain.Entities.Cdb
             await Task.Delay(0);
 
             return _taxaImposto;
-
         }
 
         public async Task<decimal> CalcularImposto()
@@ -82,6 +83,6 @@ namespace InvestmentCalculator.Domain.Entities.Cdb
             await Task.Delay(0);
 
             return _valorFinalLiquido;
-        }
+        }      
     }
 }
