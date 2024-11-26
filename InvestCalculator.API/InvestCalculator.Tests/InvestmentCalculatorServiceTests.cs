@@ -147,10 +147,19 @@ namespace CdbCalculator.Tests
             var cdi = 0.009m; // 0.9%
             var tb = 1.08m;  // 108%
 
+            var _valorFinalBruto = valorInicial;
+
+            for (int i = 0; i < meses; i++)
+            {
+                _valorFinalBruto *= 1 + cdi * tb;
+            }
+
+            _valorFinalBruto = Math.Round(_valorFinalBruto, 2, MidpointRounding.AwayFromZero);
+
             var resultado = await _service.Calcular(valorInicial, meses);
 
             // Assert   101.95
-            Assert.Equal(101.95m, resultado.ValorFinalBruto, 2); // Valor esperado após 2 meses
+            Assert.Equal(_valorFinalBruto, resultado.ValorFinalBruto, 2); // Valor esperado após 2 meses
         }
 
         [Fact]
