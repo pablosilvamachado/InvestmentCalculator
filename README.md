@@ -104,9 +104,9 @@ setup.bat
 
 ## 🧑‍💻Estrutura do Projeto
 
-cdb-calculator/
+InvestmentCalculator/
 
- ├── backend/       # API em .NET Core
+ ├── InvestCalculator.API/       # API em .NET Core
 
  ├── frontend/      # Interface Angular
 
