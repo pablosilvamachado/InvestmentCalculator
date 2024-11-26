@@ -5,7 +5,7 @@ namespace InvestmentCalculator.Domain.Entities.Cdb
 {
     public class Cdb : Investimento, IInvestimento
     {
-        private const decimal Cdi = 0.09m;
+        private const decimal Cdi = 0.009m;
         private const decimal Tb = 1.08m;
 
         private const bool imposto = true;
@@ -73,7 +73,6 @@ namespace InvestmentCalculator.Domain.Entities.Cdb
             _imposto = Math.Round(desconto, 2, MidpointRounding.ToNegativeInfinity);
 
             return _imposto;
-
         }
 
         public async Task<decimal> CalcularLiquido()
