@@ -7,7 +7,7 @@
 @echo "---------------------Compilando o projeto de testes-------------------------"
 set "pasta=InvestCalculator.API\InvestCalculator.Tests\bin\"
 if not exist "%pasta%" (
-		start /min InvestCalculator.API\InvestCalculator.Tests\setup.bat
+		start InvestCalculator.API\InvestCalculator.Tests\setup.bat
 )
 
 @echo "---------------------Compilando se nescessário e executando Front End-------------------------"
