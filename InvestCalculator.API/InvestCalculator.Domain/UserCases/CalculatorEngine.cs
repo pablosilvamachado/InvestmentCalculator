@@ -8,7 +8,6 @@ namespace InvestmentCalculator.Domain.UserCases
     public class CalculatorEngine : ICalculatorEngine
     {
         private readonly IInvestimento _Investimento;
-
        
         public CalculatorEngine(IInvestimento investimento)
         {
